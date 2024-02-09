@@ -27,13 +27,13 @@ public class PessoaService {
 
 	}
 
-	public Pessoa readOne(Long id) {
+	public Pessoa readOne(Integer id) {
 
 		return pessoaRepository.findById(id).orElseThrow();
 
 	}
 	
-	public void delete(Long id) {
+	public void delete(Integer id) {
 		pessoaRepository.deleteById(id);
 	}
 }

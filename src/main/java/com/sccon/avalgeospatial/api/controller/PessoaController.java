@@ -26,9 +26,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sccon.avalgeospatial.AvalGeospatialApplication;
 import com.sccon.avalgeospatial.model.Pessoa;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "SCCONAvalGeospatial", description = "API")
 @RestController
 public class PessoaController {
 
+	@Operation(
+            summary = "List all persons",
+            description = "List all persons and their data from map")
 	@GetMapping("/person")
 	public ResponseEntity<List<Pessoa>> getAllPersons() {
 		Map<Integer, Pessoa> mapaPessoas = AvalGeospatialApplication.getPessoaMapa();
@@ -37,6 +44,9 @@ public class PessoaController {
 		return ResponseEntity.ok(pessoasOrdenadas);
 	}
 
+	@Operation(
+            summary = "Add person",
+            description = "Add person entitie and their data from map")
 	@PostMapping("/person")
 	public ResponseEntity<?> addPerson(@RequestBody Pessoa pessoa) {
 		Map<Integer, Pessoa> mapaPessoas = AvalGeospatialApplication.getPessoaMapa();
@@ -56,6 +66,9 @@ public class PessoaController {
 		return ResponseEntity.ok().build();
 	}
 
+	@Operation(
+            summary = "Delete person by id",
+            description = "Delete person by id parameter from map")
 	@DeleteMapping("/person/{id}")
 	public ResponseEntity<?> deletePerson(@PathVariable Integer id) {
 		Map<Integer, Pessoa> mapaPessoas = AvalGeospatialApplication.getPessoaMapa();
@@ -66,6 +79,9 @@ public class PessoaController {
 		return ResponseEntity.ok().build();
 	}
 
+	@Operation(
+            summary = "Update person by id",
+            description = "Update person by id of map")
 	@PutMapping("/person/{id}")
 	public ResponseEntity<?> updatePerson(@PathVariable Integer id, @RequestBody Pessoa pessoa) {
 		Map<Integer, Pessoa> mapaPessoas = AvalGeospatialApplication.getPessoaMapa();
@@ -77,6 +93,9 @@ public class PessoaController {
 		return ResponseEntity.ok().build();
 	}
 
+	@Operation(
+            summary = "Update person attribute",
+            description = "Update person attribute sepparately of map")
 	@PatchMapping("/person/{id}")
 	public ResponseEntity<?> updatePersonAttribute(@PathVariable Integer id, @RequestBody Map<String, Object> updates) {
 		Map<Integer, Pessoa> mapaPessoas = AvalGeospatialApplication.getPessoaMapa();
@@ -104,6 +123,9 @@ public class PessoaController {
 		return ResponseEntity.ok().build();
 	}
 
+	@Operation(
+            summary = "List person by id",
+            description = "List person by id from map")
 	@GetMapping("/person/{id}")
 	public ResponseEntity<?> getPersonById(@PathVariable Integer id) {
 		Map<Integer, Pessoa> mapaPessoas = AvalGeospatialApplication.getPessoaMapa();
@@ -113,6 +135,9 @@ public class PessoaController {
 		return ResponseEntity.ok(mapaPessoas.get(id));
 	}
 
+	@Operation(
+            summary = "Get person age by id",
+            description = "Get age person by id that receives a output format parameter, which returns the current age of a person in complete according to the passed parameter days|months|years from map")
 	@GetMapping("/person/{id}/age")
 	public ResponseEntity<?> getPersonAge(@PathVariable Integer id, @RequestParam String output) {
 		Map<Integer, Pessoa> mapaPessoas = AvalGeospatialApplication.getPessoaMapa();
@@ -143,6 +168,9 @@ public class PessoaController {
 		}
 	}
 
+	@Operation(
+            summary = "Get person salary by id",
+            description = "Get salary person by id that receives a output format parameter, which returns the current salary of a person in complete according to the passed parameter min|full from map")
 	@GetMapping("/person/{id}/salary")
 	public ResponseEntity<?> getPersonSalary(@PathVariable Integer id, @RequestParam String output) {
 
