@@ -25,7 +25,7 @@ mvn clean install
 java -jar seu-arquivo-jar.jar
 
 11. Acesse a documentação Swagger em [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html) para explorar os endpoints disponíveis.
-12. Importe a coleção do Postman fornecida no diretório raiz: `SCCON - Geoespacial.postman_collection.json`.
+12. Ou Importe a coleção do Postman fornecida no diretório raiz: `SCCON - Geoespacial.postman_collection.json`.
 
 ## Contato
 
