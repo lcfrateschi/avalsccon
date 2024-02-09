@@ -27,6 +27,10 @@ java -jar seu-arquivo-jar.jar
 11. Acesse a documentação Swagger em [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html) para explorar os endpoints disponíveis.
 12. Ou Importe a coleção do Postman fornecida no diretório raiz: `SCCON - Geoespacial.postman_collection.json`.
 
+## API ONLINE - PROVISORIA
+
+http://ec2-54-211-211-146.compute-1.amazonaws.com:8080/swagger-ui/index.html
+
 ## Contato
 
 Se você tiver alguma dúvida ou comentário, não hesite em entrar em contato comigo: lcfrateschi@gmail.com.
